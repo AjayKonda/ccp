@@ -1,0 +1,50 @@
+<div style="    margin-left: -35px;">
+    <ol class="breadcrumb bread-primary " style="background-color: #FFF;    margin-left: 0px;">
+        <li><a style="color:#333;"><i class="fa fa-bookmark-o" aria-hidden="true" style="margin-right:10px;"></i>Guest Lectures</a></li>
+        <li><a>Find a tutor <i class="glyphicon glyphicon-menu-right"></i></a></li>
+    </ol>
+</div>
+<div style="padding-bottom:20px;">
+    <div id="custom-search-input">
+        <div class="input-group col-md-12">
+            <div class="col-md-10"> <input type="text" class="form-control input-lg"   [(ngModel)]="searchString"  (keyup)="Search()" placeholder="Search by tutor name" /></div>
+            <div class="col-md-2" style="padding-right: 0px;">
+                <select class="form-control" style="    float: left;    width: 100%;    height: 46px;">
+                <option>Public</option>
+                <option>Private</option>
+                <option>Restricted</option>
+            </select>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div *ngIf="!isLoading" class="row">
+    <div *ngFor="let res of result">
+        <div id="tutor-wrapper" class="col-sm-3">
+            <div class="bgrid member">
+                <a routerLink="/dashboard/tutorprofile/{{res.id}}">
+                    <div class="member-pic">
+                        <img src="assets/images/tutors/1.jpg" alt="" />
+                    </div>
+                    <div class="member-name" style="text-align:center;">
+                        <h3> {{res.name}}</h3>
+                    </div>
+                    <div *ngFor="let skill of res.field; let i = index;">
+                        <span class="label label-warning skill overflow_ellipsis" *ngIf="i==0">{{skill}}</span>
+                        <span class="label label-info skill overflow_ellipsis" *ngIf="i==1">{{skill}}</span>
+                        <span class="label label-success skill overflow_ellipsis" *ngIf="i==2">{{skill}}</span>
+                        <span class="label label-default skill overflow_ellipsis" *ngIf="i==3">{{skill}}</span>
+
+                    </div>
+                    <img src="assets/images/tutors/5star.png" alt="" style="width:100px;" />
+
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="isLoading" class="row" style="text-align:center;">
+    <img src="assets/images/loading.gif" alt="" />
+</div>

@@ -1,0 +1,302 @@
+<div style="    margin-left: -35px;">
+	<ol class="breadcrumb bread-primary " style="background-color: #FFF;    margin-left: 0px;">
+		<li><a style="color:#333;"><i class="fa fa-bookmark-o" aria-hidden="true" style="margin-right:10px;"></i>Guest Lectures</a></li>
+		<li><a routerLink="/dashboard/findtutor">Find a tutor</a></li>
+		<li *ngIf="!isLoading"><a>{{result.name}} <i class="glyphicon glyphicon-menu-right"></i></a></li>
+	</ol>
+</div>
+<div style="clear:both;" class="backbtn" (click)="goBack()">Back</div>
+<div id="aboutModal" *ngIf="!isLoading">
+	<div class="row" style="padding: 15px;margin-top:25px;    margin-left: 0px;    margin-right: -30px;">
+		<div>
+			<div class="col-md-2"> <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRbezqZpEuwGSvitKy3wrwnth5kysKdRqBW54cAszm_wiutku3R" name="aboutme"
+					width="140" height="140" border="0"></div>
+			<div class="col-md-10">
+				<h3 style="margin-top:0px;padding-left:20px;font: 28px 'Lato', sans-serif;font-weight:bold;">{{result.name}}</h3>
+				<div style="margin-top:0px;padding-left:20px;font: 18px 'Lato', sans-serif;font-weight:bold;">Technical Architect</div>
+				<div style="padding-left:20px;padding-top:15px;">
+					<span class="label label-warning">HTML5/CSS</span>
+					<span class="label label-info">Adobe CS 5.5</span>
+					<span class="label label-info">Microsoft Office</span>
+					<span class="label label-success">Windows XP, Vista, 7</span>
+				</div>
+				<div style="padding-left:20px;padding-top:15px;">
+					<img src="assets/images/tutors/5star.png" alt="" style="width:100px;" />
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row" style="padding: 15px;margin-top:25px;    margin-left: 0px;    margin-right: -30px;">
+		<div>
+			<div class="col-md-4" style="height:100px;padding-right:20px;">
+				<button data-toggle="modal" data-target="#myModal" class="form-control input-sm btn btn-warning" type="button"
+					style="height:35px;float:right;width:150px;" id="connect"> Connect</button>
+			</div>
+			<div class="col-md-8" style="min-height:100px;padding-left:20px;">
+				<div>
+					<i class="fa fa-facebook" style="font-size: 22px;padding-bottom:15px;padding-left:25px;" aria-hidden="true"></i>
+					<span style="padding:10px; font: 16px 'Lato', sans-serif;
+    font-weight: bold;">/frndzzy</span>
+				</div>
+				<div>
+					<i class="fa fa-twitter" style="font-size: 22px;padding-bottom:15px;padding-left:25px;" aria-hidden="true"></i>
+					<span style="padding:10px; font: 16px 'Lato', sans-serif;
+    font-weight: bold;">@frndzzy</span>
+				</div>
+				<div>
+					<i class="fa fa-linkedin" style="font-size: 22px;padding-bottom:15px;padding-left:25px;" aria-hidden="true"></i>
+					<span style="padding:10px; font: 16px 'Lato', sans-serif;
+    font-weight: bold;">/frndzzy</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel" style="font: 16px 'Lato', sans-serif !important;font-weight:bold !important;">Request services of {{result.name}}</h4>
+				</div>
+				<div class="modal-body">
+					<div class="row" style="    border: 1px solid #ECECEC;    padding: 15px;margin:0px;">
+						<input id="title" [(ngModel)]="model.title" name="title" style="font-size:15px;color:#666;background-color:#fff;padding-left:10px;"
+							class="form-control input-sm " type="text" id="title" placeholder="Type your request subject here..." />
+						<textarea [(ngModel)]="model.desc" id="desc" name="desc" style="min-height: 100px;font-size:15px;color:#666;" class="form-control input-sm "
+							type="textarea" id="message" placeholder="Type your request description here..." maxlength="600" rows="3"></textarea>
+						<div class="col-lg-6" style="padding-top:15px;">
+							<div class="formlabel">Start Date</div>
+							<input type="date" id="start_date" placeholder="Start Date" name="start_date" class="form-control" required [(ngModel)]="start_date">
+						</div>
+						<div class="col-lg-6" style="padding-top:15px;">
+							<div class="formlabel">End Date</div>
+							<input type="date" id="end_date"  name="end_date" placeholder="End Date" class="form-control" required [(ngModel)]="end_date">
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" id="btnSubmit" class="btn btn-success" (click)="onSubmit()">Send Request</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<div class="modal-body" style="text-align:center;">
+		<div class="row-fluid">
+			<div class="span10 offset1">
+				<div id="modalTab">
+					<div class="tab-content">
+						<div class="tab-pane active" id="about" style="padding:25px;">
+							<p class="text-left"><strong>Bio: </strong><br> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sem dui, tempor sit amet commodo
+								a, vulputate vel tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sem dui, tempor sit amet commodo
+								a, vulputate vel tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sem dui, tempor sit amet commodo
+								a, vulputate vel tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sem dui, tempor sit amet commodo
+								a, vulputate vel tellus.
+							</p>
+							<br>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container-review">
+
+		<div class="row">
+			<div class="col-sm-3">
+				<div class="rating-block">
+					<h4>Average user rating</h4>
+					<h2 class="bold padding-bottom-7">4.3 <small>/ 5</small></h2>
+					<button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
+					  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+					</button>
+					<button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
+					  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+					</button>
+					<button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
+					  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+					</button>
+					<button type="button" class="btn btn-default btn-grey btn-sm" aria-label="Left Align">
+					  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+					</button>
+					<button type="button" class="btn btn-default btn-grey btn-sm" aria-label="Left Align">
+					  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+					</button>
+				</div>
+			</div>
+			<div class="col-sm-3">
+				<h4>Rating breakdown</h4>
+				<div class="pull-left">
+					<div class="pull-left" style="width:35px; line-height:1;">
+						<div style="height:9px; margin:5px 0;">5 <span class="glyphicon glyphicon-star"></span></div>
+					</div>
+					<div class="pull-left" style="width:180px;">
+						<div class="progress" style="height:9px; margin:8px 0;">
+							<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="5" style="width: 1000%">
+								<span class="sr-only">80% Complete (danger)</span>
+							</div>
+						</div>
+					</div>
+					<div class="pull-right" style="margin-left:10px;">1</div>
+				</div>
+				<div class="pull-left">
+					<div class="pull-left" style="width:35px; line-height:1;">
+						<div style="height:9px; margin:5px 0;">4 <span class="glyphicon glyphicon-star"></span></div>
+					</div>
+					<div class="pull-left" style="width:180px;">
+						<div class="progress" style="height:9px; margin:8px 0;">
+							<div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="4" aria-valuemin="0" aria-valuemax="5" style="width: 80%">
+								<span class="sr-only">80% Complete (danger)</span>
+							</div>
+						</div>
+					</div>
+					<div class="pull-right" style="margin-left:10px;">1</div>
+				</div>
+				<div class="pull-left">
+					<div class="pull-left" style="width:35px; line-height:1;">
+						<div style="height:9px; margin:5px 0;">3 <span class="glyphicon glyphicon-star"></span></div>
+					</div>
+					<div class="pull-left" style="width:180px;">
+						<div class="progress" style="height:9px; margin:8px 0;">
+							<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="3" aria-valuemin="0" aria-valuemax="5" style="width: 60%">
+								<span class="sr-only">80% Complete (danger)</span>
+							</div>
+						</div>
+					</div>
+					<div class="pull-right" style="margin-left:10px;">0</div>
+				</div>
+				<div class="pull-left">
+					<div class="pull-left" style="width:35px; line-height:1;">
+						<div style="height:9px; margin:5px 0;">2 <span class="glyphicon glyphicon-star"></span></div>
+					</div>
+					<div class="pull-left" style="width:180px;">
+						<div class="progress" style="height:9px; margin:8px 0;">
+							<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="5" style="width: 40%">
+								<span class="sr-only">80% Complete (danger)</span>
+							</div>
+						</div>
+					</div>
+					<div class="pull-right" style="margin-left:10px;">0</div>
+				</div>
+				<div class="pull-left">
+					<div class="pull-left" style="width:35px; line-height:1;">
+						<div style="height:9px; margin:5px 0;">1 <span class="glyphicon glyphicon-star"></span></div>
+					</div>
+					<div class="pull-left" style="width:180px;">
+						<div class="progress" style="height:9px; margin:8px 0;">
+							<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="5" style="width: 20%">
+								<span class="sr-only">80% Complete (danger)</span>
+							</div>
+						</div>
+					</div>
+					<div class="pull-right" style="margin-left:10px;">0</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-8">
+				<hr/>
+				<div class="review-block">
+					<div class="row">
+						<div class="col-sm-3">
+							<img src="http://dummyimage.com/60x60/666/ffffff&text=No+Image" class="img-rounded">
+							<div class="review-block-name"><a href="#">nktailor</a></div>
+							<div class="review-block-date">January 29, 2016<br/>1 day ago</div>
+						</div>
+						<div class="col-sm-9">
+							<div class="review-block-rate">
+								<button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
+								  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								</button>
+								<button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
+								  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								</button>
+								<button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
+								  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								</button>
+								<button type="button" class="btn btn-default btn-grey btn-xs" aria-label="Left Align">
+								  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								</button>
+								<button type="button" class="btn btn-default btn-grey btn-xs" aria-label="Left Align">
+								  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								</button>
+							</div>
+							<div class="review-block-title">this was nice in buy</div>
+							<div class="review-block-description">this was nice in buy. this was nice in buy. this was nice in buy. this was nice in buy this was nice in buy this was
+								nice in buy this was nice in buy this was nice in buy</div>
+						</div>
+					</div>
+					<hr/>
+					<div class="row">
+						<div class="col-sm-3">
+							<img src="http://dummyimage.com/60x60/666/ffffff&text=No+Image" class="img-rounded">
+							<div class="review-block-name"><a href="#">nktailor</a></div>
+							<div class="review-block-date">January 29, 2016<br/>1 day ago</div>
+						</div>
+						<div class="col-sm-9">
+							<div class="review-block-rate">
+								<button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
+								  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								</button>
+								<button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
+								  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								</button>
+								<button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
+								  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								</button>
+								<button type="button" class="btn btn-default btn-grey btn-xs" aria-label="Left Align">
+								  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								</button>
+								<button type="button" class="btn btn-default btn-grey btn-xs" aria-label="Left Align">
+								  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								</button>
+							</div>
+							<div class="review-block-title">this was nice in buy</div>
+							<div class="review-block-description">this was nice in buy. this was nice in buy. this was nice in buy. this was nice in buy this was nice in buy this was
+								nice in buy this was nice in buy this was nice in buy</div>
+						</div>
+					</div>
+					<hr/>
+					<div class="row">
+						<div class="col-sm-3">
+							<img src="http://dummyimage.com/60x60/666/ffffff&text=No+Image" class="img-rounded">
+							<div class="review-block-name"><a href="#">nktailor</a></div>
+							<div class="review-block-date">January 29, 2016<br/>1 day ago</div>
+						</div>
+						<div class="col-sm-9">
+							<div class="review-block-rate">
+								<button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
+								  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								</button>
+								<button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
+								  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								</button>
+								<button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
+								  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								</button>
+								<button type="button" class="btn btn-default btn-grey btn-xs" aria-label="Left Align">
+								  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								</button>
+								<button type="button" class="btn btn-default btn-grey btn-xs" aria-label="Left Align">
+								  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								</button>
+							</div>
+							<div class="review-block-title">this was nice in buy</div>
+							<div class="review-block-description">this was nice in buy. this was nice in buy. this was nice in buy. this was nice in buy this was nice in buy this was
+								nice in buy this was nice in buy this was nice in buy</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<!-- /container -->
+</div>
+<div *ngIf="isLoading" class="row" style="text-align:center;">
+	<img src="assets/images/loading.gif" alt="" />
+</div>

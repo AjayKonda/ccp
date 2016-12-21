@@ -1,0 +1,97 @@
+<div style="Margin-top:30px;" *ngIf="!isLoading">
+	<div class="col-xs-6 col-md-2" style="text-align:center;    font: 13px 'Lato', sans-serif;">
+		<div style="width:150px; background-color:#F47521;padding:15px;border-radius:10px;color:#FFF;">
+			<div style="font-size: 13px;text-transform: uppercase;">Events</div>
+			<div style="font-size:45px;font-weight:bold;padding:5px;">{{result.total_event}}</div>
+		</div>
+	</div>
+	<div class="col-xs-6 col-md-2" style="text-align:center;    font: 13px 'Lato', sans-serif;">
+		<div style="width:150px; background-color:#9b59b6;padding:15px;border-radius:10px;color:#FFF;">
+			<div style="font-size: 13px;text-transform: uppercase;">Guest Lectures</div>
+			<div style="font-size:45px;font-weight:bold;padding:5px;">{{result.total_gl_organizer}}</div>
+		</div>
+	</div>
+	<div class="col-xs-6 col-md-2" style="text-align:center;    font: 13px 'Lato', sans-serif;">
+		<div style="width:150px; background-color:#e74c3c;padding:15px;border-radius:10px;color:#FFF;">
+			<div style="font-size: 13px;text-transform: uppercase;">Workshops</div>
+			<div style="font-size:45px;font-weight:bold;padding:5px;">{{result.total_ws_organizer}}</div>
+		</div>
+	</div>
+	<div class="col-xs-6 col-md-2" style="text-align:center;    font: 13px 'Lato', sans-serif;">
+		<div style="width:150px; background-color:#F47521;padding:15px;border-radius:10px;color:#FFF;">
+			<div style="font-size: 13px;text-transform: uppercase;">Students</div>
+			<div style="font-size:45px;font-weight:bold;padding:5px;">{{result.total_your_student}}</div>
+		</div>
+	</div>
+	<div class="col-xs-6 col-md-2" style="text-align:center;    font: 13px 'Lato', sans-serif;">
+		<div style="width:150px; background-color:#9b59b6;padding:15px;border-radius:10px;color:#FFF;">
+			<div style="font-size: 13px;text-transform: uppercase;">Colleges</div>
+			<div style="font-size:45px;font-weight:bold;padding:5px;">{{result.total_college}}</div>
+		</div>
+	</div>
+	<div class="col-xs-6 col-md-2" style="text-align:center;    font: 13px 'Lato', sans-serif;">
+		<div style="width:150px; background-color:#e74c3c;padding:15px;border-radius:10px;color:#FFF;">
+			<div style="font-size: 13px;text-transform: uppercase;">All Students</div>
+			<div style="font-size:45px;font-weight:bold;padding:5px;">{{result.total_all_student}}</div>
+		</div>
+	</div>
+</div>
+<div style="clear:both;padding-top:50px;">
+	<!--<div class="col-md-12">
+		<div class="col-xs-6">
+			<canvas baseChart class="chart" [datasets]="datasets" [labels]="labels" [options]="options" [chartType]="'line'">
+			</canvas>
+		</div>
+		<div class="col-md-4" style="    padding-left: 0px; float:right;">
+						<div id="myCarousel" class="carousel slide">
+				<div class="carousel-inner">
+					<div class="item active">
+						<a href="#"><img class="thumbnail" src="http://placehold.it/600x400/" alt="Slide1"></a>
+						<div class="caption">
+							<h4>Lorem ipsum dolor sit amet, consetetur sadipscing elitr</h4>
+							<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
+								magna aliquyam erat, sed diam voluptua. </p>
+						</div>
+					</div>
+					<div class="item">
+						<a href="#"><img class="thumbnail" src="http://placehold.it/600x400/" alt="Slide2"></a>
+						<div class="caption">
+							<h4>Lorem ipsum dolor sit amet, consetetur sadipscing elitr</h4>
+							<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
+								magna aliquyam erat, sed diam voluptua. </p>
+						</div>
+					</div>
+					<div class="item">
+						<a href="#"><img class="thumbnail" src="http://placehold.it/600x400/" alt="Slide3"></a>
+						<div class="caption">
+							<h4>Lorem ipsum dolor sit amet, consetetur sadipscing elitr</h4>
+							<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
+								magna aliquyam erat, sed diam voluptua. </p>
+						</div>
+					</div>
+				</div>
+				<ol class="carousel-indicators">
+					<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+					<li data-target="#myCarousel" data-slide-to="1"></li>
+					<li data-target="#myCarousel" data-slide-to="2"></li>
+				</ol>
+			</div>
+		</div>
+
+	</div>-->
+
+</div>
+<div style="margin-top:200px;">
+	<div class="col-xs-6">
+		<div style="display: block">
+			 <canvas baseChart
+                [data]="lineChartData"
+                [labels]="lineChartLabels"
+                [options]="lineChartOptions"
+                [chartType]="lineChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+		</div>
+	</div>
+
+</div>

@@ -1,0 +1,41 @@
+<div style="    margin-left: -35px;">
+	<ol class="breadcrumb bread-primary " style="background-color: #FFF;    margin-left: 0px;">
+		<li><a style="color:#333;"><i class="fa fa-calendar" aria-hidden="true" style="margin-right:10px;"></i>Events</a></li>
+		<li><a>All Events <i class="glyphicon glyphicon-menu-right"></i></a></li>
+	</ol>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<div style="padding-bottom:20px;">
+			<div id="custom-search-input">
+				<div class="input-group col-md-12">
+					<input type="text" #title (keyup)="Search(title.value);" class="form-control input-lg" placeholder="Search by event name"
+					/>
+				</div>
+			</div>
+		</div>
+
+		<div class="row" style="    margin-top: 50px;">
+			<div *ngIf="!isLoading" class="row">
+				<div *ngFor="let res of result">
+					<div id="tutor-wrapper" class="col-sm-3">
+						<div class="bgrid member" style="    height: 270px !important;">
+							<a>
+								<div>
+									<img style="border-radius:0px;" src="{{res.images[0]}}" alt="" />
+								</div>
+								<div class="member-name">
+									<h3 style="text-align:left !important;"> {{res.title}}</h3>
+									<div style="text-align:left !important;padding-bottom: 10px;">{{res.desc| slice:0:50}}</div>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div *ngIf="isLoading" class="row" style="text-align:center;">
+				<img src="assets/images/loading.gif" alt="" />
+			</div>
+		</div>
+	</div>
+</div>

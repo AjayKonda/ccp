@@ -1,0 +1,73 @@
+<div style="    margin-left: -35px;">
+	<ol class="breadcrumb bread-primary " style="background-color: #FFF;    margin-left: 0px;">
+		<li><a style="color:#333;"><i class="fa fa-user" aria-hidden="true" style="margin-right:10px;"></i>Student Management</a></li>
+		<li><a>Students <i class="glyphicon glyphicon-menu-right"></i></a></li>
+	</ol>
+</div>
+<div id="custom-search-input">
+	<div class="input-group col-md-12">
+		<input type="text" class="form-control input-lg" (keyup)="Search()" [(ngModel)]="searchString" placeholder="Search by username"
+		/>
+	</div>
+</div>
+<table class="table table-striped table-hover">
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>User Name</th>
+			<th>Gender</th>
+			<th>Email</th>
+			<th>Mobile Number</th>
+			<th>Roll Number</th>
+			<th>Course</th>
+			<th>Ends On</th>
+			<th>Frndzzy Code</th>
+			<th style="text-align:center;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></th>
+		</tr>
+	</thead>
+	<tbody *ngIf="isLoading">
+		<tr>
+			<td colspan="9" style="font-size:13px;background-color:#fff;text-align:center;padding-top:60px;">Loading....</td>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr *ngFor="let student of result; let i = index">
+			<th scope="row">{{i+1}}</th>
+			<td>{{student.user_name}}</td>
+			<td>{{student.gender}}</td>
+			<td>{{student.email}}</td>
+			<td>{{student.mobile_number}}</td>
+			<td>{{student.course_info.roll_number}}</td>
+			<td>{{student.course_info.course_title}}</td>
+			<td>{{student.course_info.ends_on}}</td>
+			<td>{{student.frndzzy_code}}</td>
+			<td><a data-toggle="modal" (click)="updateModel(student)" data-target="#myModal" style="float:right;" id="btnSubmit" class="btn btn-sm btn-success"
+					role="button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+		</tr>
+	</tbody>
+</table>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel" style="font: 16px 'Lato', sans-serif !important;font-weight:bold !important;">Editing details of {{modelStudent.user_name}} </h4>
+			</div>
+			<div class="modal-body">
+				<div class="row" style="    border: 1px solid #ECECEC;    padding: 15px;margin:0px;">
+					<input id="title" name="title" style="font-size:15px;color:#666;background-color:#fff;padding-left:10px;" class="form-control input-sm "
+						type="text" id="title" value="{{modelStudent.user_name}}" />
+					<input id="title" name="title" style="font-size:15px;color:#666;background-color:#fff;padding-left:10px;" class="form-control input-sm "
+						type="text" id="title" value="{{modelStudent.mobile_number}}" />
+					<input id="title" name="title" style="font-size:15px;color:#666;background-color:#fff;padding-left:10px;" class="form-control input-sm "
+						type="text" id="title" value="{{modelStudent.email}}" />
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<button type="button" id="btnSubmit1" (click)="submitStudent()" class="btn btn-success">Submit</button>
+			</div>
+		</div>
+	</div>
+</div>

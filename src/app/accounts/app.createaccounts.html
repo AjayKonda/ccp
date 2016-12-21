@@ -1,0 +1,94 @@
+<div style="margin-left: -35px;">
+	<ol class="breadcrumb bread-primary " style="background-color: #FFF;    margin-left: 0px;">
+		<li><a style="color:#333;">Accounts</a></li>
+		<li><a>Create Accounts <i class="glyphicon glyphicon-menu-right"></i></a></li>
+	</ol>
+</div>
+
+<div>
+	<form (ngSubmit)="onSubmit(AccountForm.value)" #AccountForm="ngForm">
+		<div class="row">
+			<div class="col-lg-4">
+				<div class="formlabel">Role</div>
+				<select id="role_id" required name="role_id" [(ngModel)]="model.role_id" class="form-control" style="width:100%;height:35px;margin-right:10px;">
+                    <option value="-1">Choose one</option> 
+                <option *ngFor="let res of roles" value="{{res.id}}">{{res.role_name}}</option>
+            </select>
+			</div>
+			<div class="col-lg-4">
+				<div class="formlabel">Department</div>
+				<select id="dept_id" required name="dept_id" [(ngModel)]="model.dept" class="form-control" style="width:100%;height:35px;margin-right:10px;">
+                    <option value="0">Choose one</option> 
+                <option *ngFor="let res of departments" value="{{res.id}}">{{res.department_title}}</option>
+            </select>
+			</div>
+		</div>
+		<div class="row" style="    margin-top: 25px;">
+			<div class="col-lg-4">
+				<div class="formlabel">First Name</div>
+				<input type="text" required id="firstname" placeholder="First Name" name="firstname" class="form-control" required [(ngModel)]="model.firstname">
+			</div>
+			<div class="col-lg-4">
+				<div class="formlabel">Last Name</div>
+				<input type="text" required id="lastname" placeholder="Last Name" name="lastname" class="form-control" required [(ngModel)]="model.lastname">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-4">
+				<div class="formlabel">User Name</div>
+				<input type="text" required id="username" name="username" placeholder="User Name" class="form-control" required [(ngModel)]="model.username">
+			</div>
+			<div class="col-lg-4">
+				<div class="formlabel">Password</div>
+				<input type="password" required id="password" placeholder="Password" name="password" class="form-control" required [(ngModel)]="model.password">
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-lg-4">
+				<div style="color: #666 !important;font-size: 10px;padding-bottom: 5px;text-transform:uppercase;">Profile Picture</div>
+				<input style="float:left;font-size:15px;" type="file" ngFileSelect [options]="basicOptions" (onUpload)="handleUpload($event)">
+			</div>
+			<div class="col-lg-4">
+				<div class="formlabel">Gender</div>
+				<div class="row">
+					<div class="col-sm-3">
+						<label class="radio-inline">
+                          <input type="radio" id="maleRadio" [(ngModel)]="model.gender" name="gender" value="MALE">Male
+                      </label>
+					</div>
+					<div class="col-sm-3">
+						<label class="radio-inline">
+                          <input type="radio" id="femaleRadio" [(ngModel)]="model.gender" name="gender" value="FEMALE">Female
+                      </label>
+					</div>
+					<div class="col-sm-3">
+						<label class="radio-inline">
+                          <input type="radio" id="femaleRadio" [(ngModel)]="model.gender" name="gender" value="OTHERS">Others
+                      </label>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-4">
+			
+			</div>
+			<div class="col-lg-4">
+				
+			</div>
+		</div>
+		<div class="row" style="margin-top:25px">
+
+			<div class="col-lg-4">
+							<img src="{{apiurl1}}" style="width:50px;height:50px;"/>
+			</div>
+			<div class="col-lg-2">
+			</div>
+			<div class="col-lg-2">
+				<button type="submit" id="btnSubmit" class="btn btn-primary btn-block">Register</button>
+			</div>
+		</div>
+
+	</form>
+</div>

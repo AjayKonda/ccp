@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
-
+import { Routes,Router, RouterModule } from '@angular/router';
+import './rxjs-operators';
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+    selector:'app-root',
+    templateUrl: './app.component.html'
 })
 export class AppComponent {
-  title = 'app works!';
-}
+    constructor(public router: Router){}
+      isActiveRoute(route: string) {
+        return this.router.isActive(route,true);
+    } 
+ }

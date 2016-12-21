@@ -1,0 +1,43 @@
+<div style="    margin-left: -35px;">
+	<ol class="breadcrumb bread-primary " style="background-color: #FFF;    margin-left: 0px;">
+		<li><a style="color:#333;"><i class="fa fa-cog" aria-hidden="true" style="margin-right:10px;"></i>Workshops</a></li>
+		<li><a>My workshops <i class="glyphicon glyphicon-menu-right"></i></a></li>
+	</ol>
+</div>
+<div>
+	<div id="custom-search-input">
+		<div class="input-group col-md-12">
+			<input type="text" class="form-control input-lg" placeholder="Search by workshop name" />
+		</div>
+	</div>
+</div>
+<div>
+	<div class="row" style="    margin-top: 50px;">
+		<div *ngIf="!isLoading" class="row">
+			<div *ngFor="let res of result">
+				<div id="tutor-wrapper" class="col-sm-3">
+					<div class="bgrid member" style="    height: 270px !important;">
+						<a routerLink="/dashboard/tutorprofile/{{res.id}}">
+							<div>
+								 <img style="border-radius:0px;" src="{{res.banner_image}}" alt="" />
+							</div>
+							<div class="member-name" >
+								<h3 style="text-align:left !important;"> {{res.title}}</h3>
+                                <div style="text-align:left !important;">by {{res.name}}</div>
+							</div>
+							<div *ngFor="let skill of res.specialization; let i = index;">
+								<span class="label label-warning skill overflow_ellipsis" *ngIf="i==0">{{skill}}</span>
+								<span class="label label-info skill overflow_ellipsis" *ngIf="i==1">{{skill}}</span>
+								<span class="label label-success skill overflow_ellipsis" *ngIf="i==2">{{skill}}</span>
+								<span class="label label-default skill overflow_ellipsis" *ngIf="i==3">{{skill}}</span>
+
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div *ngIf="isLoading" class="row" style="text-align:center;">
+			<img src="images/loading.gif" alt="" />
+		</div>
+	</div>

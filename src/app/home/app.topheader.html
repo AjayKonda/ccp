@@ -1,0 +1,27 @@
+<header id="main-header">
+    <div class="navbar">
+        <nav id="nav-wrap">
+            <a class="mobile-btn" href="#nav-wrap" title="Show navigation">
+                <span class="menu-icon">Menu</span>
+            </a>
+            <a class="mobile-btn" href="#" title="Hide navigation">
+                <span class="menu-icon">Menu</span>
+            </a>
+            <ul id="nav" class="nav">
+                <li><a style="border-radius: 0px;"  class="smoothscroll" [routerLinkActive]="['active']" routerLink="/home"><i class="fa fa-home m-r-sm"></i>Home</a></li>
+                <li><a  style="border-radius: 0px;" [routerLinkActive]="['active']" routerLink="/events">Events</a></li>
+                <li><a style="border-radius: 0px;"  [routerLinkActive]="['active']" routerLink="/workshops">Workshops</a></li>
+                <!--<li><a style="border-radius: 0px;"  [routerLinkActive]="['active']" routerLink="/startups">Startups</a></li>-->
+                <li><a style="border-radius: 0px;"  [routerLinkActive]="['active']" routerLink="/guestlectures">Guest Lectures</a></li>
+                <li><a style="border-radius: 0px;"  [routerLinkActive]="['active']" routerLink="/workforus">Work for us</a></li>
+                <li><a style="border-radius: 0px;"  [routerLinkActive]="['active']" routerLink="/getapp">Download App</a></li>
+                <li><a  style="border-radius: 0px;" [routerLinkActive]="['active']" routerLink="/aboutus">About Us</a></li>
+                <li *ngIf="isLoggedIn" (click)="logout()" class="nav-right home-logout"><i class="fa fa-sign-out" aria-hidden="true"></i></li>
+                <li class="nav-right"><a class="smoothscroll" href="#contact">Support</a></li>
+                <li *ngIf="!isLoggedIn" class="nav-right redbox item-wrap"><a style="border-radius: 0px;" [routerLinkActive]="['active']" routerLink="/login">Sign in</a></li>
+                <li *ngIf="isLoggedIn" class="nav-right redbox item-wrap"><a style="cursor:pointer;" (click)="dashboard()">Dashboard</a></li>
+
+            </ul>
+        </nav>
+    </div>
+</header>

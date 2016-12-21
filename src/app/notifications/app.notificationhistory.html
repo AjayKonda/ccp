@@ -1,0 +1,59 @@
+<div style="    margin-left: -35px;">
+	<ol class="breadcrumb bread-primary " style="background-color: #FFF;    margin-left: 0px;">
+		<li><a style="color:#333;"><i class="fa fa-bell-o" aria-hidden="true" style="margin-right:10px;"></i>Notifications</a></li>
+		<li><a>History <i class="glyphicon glyphicon-menu-right"></i></a></li>
+	</ol>
+</div>
+<div class="form-group col-md-12">
+	<div id="custom-search-input">
+		<div class="input-group col-md-12">
+			<input type="text" class="form-control input-lg" (keyup)="Search()" [(ngModel)]="searchString" placeholder="Search by notification text"
+			/>
+		</div>
+	</div>
+	<div style="font-size: 13px;
+    color: #999;
+    padding-top: 10px;
+    padding-bottom: 10px;">Showing notifications for the last 30 days. <span style="margin-left:7px;font-size:12px;color:#2196f3;cursor:pointer;display:none;" (click)="changeDates()"
+			id="change">CHANGE</span></div>
+	<div class="row" *ngIf="isClicked" style="    border: 1px solid #ECECEC;    padding: 15px;">
+		<div class="col-lg-4">
+			<div class="formlabel">Start Date</div>
+			<input type="date" id="start_date" placeholder="Start Date" name="start_date" class="form-control" required [(ngModel)]="start_date">
+		</div>
+		<div class="col-lg-4">
+			<div class="formlabel">End Date</div>
+			<input type="date" id="end_date" name="end_date" placeholder="End Date" class="form-control" required [(ngModel)]="end_date">
+		</div>
+		<div class="col-lg-4" style="float:left">
+			<button class="form-control input-sm btn btn-success" (click)="getNotifications()" id="btnSubmit" name="btnSubmit" type="submit"
+				style="height:35px;    margin-top: 20px;width:150px;"> Submit</button>
+		</div>
+	</div>
+	<div *ngIf="!isLoading">
+		<table class="table table-striped table-hover">
+			<tr *ngFor="let res of result" class="notification-row">
+				<td>
+					<div class="media">
+						<div class="media-body">
+							<p><strong>{{res.title}}</strong></p>
+							<p style="font-family: sans-serif;	color: #444;">{{res.message}}</p>
+							<ul class="list-inline list-unstyled" style="color:#666;    font-size: 12px;">
+								<li>{{res.sent_by}}</li>
+								<li>|</li>
+								<li><span><i class="glyphicon glyphicon-calendar"></i> {{res.created_at}} </span></li>
+								<li>|</li>
+								<span><i class="fa fa-paper-plane"></i><span style="font-size:12px;padding-left:10px;padding-right:10px;">SENT</span>								{{res.message_delivered}}</span>
+								<li>|</li>
+								<span><i class="glyphicon glyphicon-eye-open"></i><span style="font-size:12px;padding-left:10px;padding-right:10px;">SEEN</span>								{{res.message_seen}}</span>
+							</ul>
+						</div>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div *ngIf="isLoading" class="row" style="text-align:center;">
+		<img src="assets/images/loading.gif" alt="" />
+	</div>
+</div>

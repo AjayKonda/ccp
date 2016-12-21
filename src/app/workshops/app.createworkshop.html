@@ -1,0 +1,54 @@
+<div style="margin-left: -35px;">
+    <ol class="breadcrumb bread-primary " style="background-color: #FFF;    margin-left: 0px;">
+        <li><a style="color:#333;">EvWorkshopents</a></li>
+        <li><a>Create Workshop <i class="glyphicon glyphicon-menu-right"></i></a></li>
+    </ol>
+</div>
+
+<div>
+    <form (ngSubmit)="onSubmit(AccountForm.value)" #AccountForm="ngForm">
+        <div class="row">
+            
+            <div class="col-lg-4">
+                <div class="formlabel">Workshop Org Id</div>
+                <input type="text" id="workshop_org_id" name="workshop_org_id" placeholder="Workshop Org Id" class="form-control" required [(ngModel)]="model.workshop_org_id">
+            </div>
+            <div class="col-lg-4">
+                <div class="formlabel">College</div>
+                <input type="text" id="college_id" name="college_id" placeholder="College Name" class="form-control" required [(ngModel)]="model.college_id">
+            </div>
+        </div>
+        <div class="row">            
+            <div class="col-lg-4">
+                <div class="formlabel">Workshop Title</div>
+                <input type="text" id="title" placeholder="Workshop Title" name="title" class="form-control" required [(ngModel)]="model.title">
+            </div>
+            <div class="col-lg-4">
+                <div class="formlabel">Workshop Description</div>
+                <input type="text" id="desc" name="desc" placeholder="Workshop Description" class="form-control" required [(ngModel)]="model.desc">
+            </div>
+        </div>
+        <!--<div class="row">            
+            <div class="col-lg-4">
+                <div class="formlabel">Start Date</div>
+                <input type="date" id="start_date" placeholder="Start Date" name="start_date" class="form-control" required [(ngModel)]="model.start_date">
+            </div>
+            <div class="col-lg-4">
+                <div class="formlabel">End Date</div>
+                <input type="date" id="end_date" name="end_date" placeholder="End Date" class="form-control" required [(ngModel)]="model.end_date">
+            </div>
+        </div>        -->
+        <div class="row" style="margin-top:25px">
+
+            <div class="col-lg-4">
+
+            </div>
+            <div class="col-lg-2">
+            </div>
+            <div class="col-lg-2">
+                <button type="submit" class="btn btn-primary btn-block">Register</button>
+            </div>
+        </div>
+
+    </form>
+</div>

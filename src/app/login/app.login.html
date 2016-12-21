@@ -1,0 +1,29 @@
+<top-header></top-header>
+<div class="container">
+    <div class="row">
+        	<div class="col-md-4 col-md-offset-4" style="margin-top:40px;">
+                <div class="avatar"></div>
+            <div class="description-box">
+                <form name="login-form" (submit)="login($event, username.value, password.value)">
+                    <div style="    background-color: #e46868;color: #fff;margin-bottom:10px;padding:10px;" *ngIf="isError">
+                        Invalid credentials. Please try again!
+                    </div>
+                    <div class="list-group list-group-sm">
+                        <div class="list-group-item" style="padding:0px;border: 0px;">
+                            <input type="text" #username name="login" id="login" style="margin-bottom: 10px;height: 50px;font-size: 16px;background: #FFF;border: 1px solid #D9D9D9;font-family: 'raleway-semibold', sans-serif !important;"
+                                placeholder="someone@example.com" required class="form-control no-border">
+                        </div>
+                        <div class="list-group-item" style="padding:0px;border: 0px; margin-top: 20px;">
+                            <input type="password" #password style="height: 50px;font-size: 16px;background: #FFF;border: 1px solid #D9D9D9;font-family: 'raleway-semibold', sans-serif !important;"
+                                name="password" id="password" placeholder="password" required class="form-control no-border">
+                        </div>
+                    </div>
+                    <button type="submit" id="loginBtn" class="btn  btn-success btn-block" style="font-size: 15px;width:100%;font-family: 'raleway-semibold', sans-serif !important;">SIGN IN</button>
+                    <div class="text-center  m-t-md" style="margin-top:25px;">
+                        <span style="color: #666 !important;font-family: 'Segoe UI', Segoe, SegoeUI-Regular-final, Tahoma, Helvetica, Arial, sans-serif;font-size: 14px;">Can't access your account?</span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,161 @@
+<div style="margin-left: -35px;">
+	<ol class="breadcrumb bread-primary " style="background-color: #FFF;    margin-left: 0px;">
+		<li><a style="color:#333;">Events</a></li>
+		<li><a>Create Event <i class="glyphicon glyphicon-menu-right"></i></a></li>
+	</ol>
+</div>
+
+<div>
+	<!--<form (ngSubmit)="onSubmit(AccountForm.value)" #AccountForm="ngForm">
+		<div class="row">
+
+			<div class="col-lg-4">
+				<div class="formlabel">Title</div>
+				<input type="text" id="college_id" name="college_id" placeholder="College Name" class="form-control" required [(ngModel)]="model.title">
+			</div>
+			<div class="col-lg-4">
+				<textarea [(ngModel)]="model.message" id="message" name="message" style="min-height: 100px;font-size:15px;color:#666;" class="form-control input-sm "
+					type="textarea" id="message" placeholder="Type your poll message here..." maxlength="600" rows="3"></textarea>
+			</div>
+			<div class="col-lg-4">
+				<div class="formlabel">Role</div>
+				<input type="text" id="role_id" name="role_id" placeholder="Role" class="form-control" required [(ngModel)]="model.role_id">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-4">
+				<div class="formlabel">User ID</div>
+				<input type="text" id="user_id" name="user_id" placeholder="User ID" class="form-control" required [(ngModel)]="model.user_id">
+			</div>
+			<div class="col-lg-4">
+				<div class="formlabel">Event Title</div>
+				<input type="text" id="title" placeholder="Title" name="title" class="form-control" required [(ngModel)]="model.title">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-4">
+				<div class="formlabel">Event Description</div>
+				<input type="text" id="desc" name="desc" placeholder="Event Description" class="form-control" required [(ngModel)]="model.desc">
+			</div>
+			<div class="col-lg-4">
+				<div class="formlabel">Start Date</div>
+				<input type="date" id="start_date" placeholder="Start Date" name="start_date" class="form-control" required [(ngModel)]="model.start_date">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-4">
+				<div class="formlabel">End Date</div>
+				<input type="date" id="end_date" name="end_date" placeholder="End Date" class="form-control" required [(ngModel)]="model.end_date">
+			</div>
+			<div class="col-lg-4">
+				<div class="formlabel">Start Time</div>
+				<input type="date" id="start_time" placeholder="Start Time" name="start_time" class="form-control" required [(ngModel)]="model.start_time">
+			</div>
+		</div>
+		<div class="row" style="padding-top: 15px;padding-bottom: 15px;">
+			<div class="col-lg-4">
+				<div class="formlabel">End Time</div>
+				<input type="date" id="end_time" name="end_time" placeholder="End Time" class="form-control" required [(ngModel)]="model.end_time">
+			</div>
+			<div class="col-lg-4">
+				<div class="formlabel">images</div>
+				<input type="file" id="images" name="images" class="form-control" [(ngModel)]="model.images">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-4">
+				<div class="formlabel">Address line 1</div>
+				<input type="text" id="address_line_1" name="address_line_1" placeholder="Address line 1" class="form-control" required [(ngModel)]="model.address_line_1">
+			</div>
+			<div class="col-lg-4">
+				<div class="formlabel">Address line 2</div>
+				<input type="text" id="address_line_2" placeholder="Address line 2" name="address_line_2" class="form-control" required [(ngModel)]="model.address_line_2">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-4">
+				<div class="formlabel">Tags</div>
+				<input type="text" id="tags" name="tags" placeholder="Tags" class="form-control" required [(ngModel)]="model.tags">
+			</div>
+			<div class="col-lg-4">
+				<div class="formlabel">Other Details</div>
+				<input type="text" id="other_details" placeholder="Other Details" name="other_details" class="form-control" required [(ngModel)]="model.other_details">
+			</div>
+		</div>
+
+		<input type="file" ngFileSelect [options]="basicOptions" (onUpload)="handleUpload($event)">
+
+		<div>
+			Response: {{ response | json }}
+		</div>
+
+		<div>
+			Progress: {{ progress }}%
+		</div>
+		<div class="row" style="margin-top:25px">
+
+			<div class="col-lg-4">
+
+			</div>
+			<div class="col-lg-2">
+			</div>
+			<div class="col-lg-2">
+				<button type="submit" class="btn btn-primary btn-block">Register</button>
+			</div>
+		</div>
+
+	</form>-->
+
+	<div class="form-group col-md-12 " style="    background-color: #ECECEC;    border-radius: 5px;    border: 1px solid #d8d7d7">
+		<div class="form-group col-md-6 ">
+			<form #formRef="ngForm" (ngSubmit)="onSubmit(formRef.value)">
+				<div>
+					<br style="clear:both">
+					<div class="col-md-12" style="padding:15px;padding-bottom:0px;">
+						<div class="formlabel">Event Title</div>
+						<input id="title" [(ngModel)]="model.title" name="title" style="font-size:15px;color:#666;background-color:#fff;padding-left:10px;"
+							class="form-control input-sm " type="text" id="title" placeholder="Type your event title here..." required/>
+					</div>
+					<div class="col-md-12" style="padding:15px;padding-bottom:0px;padding-top:0px;">
+						<div class="formlabel">Description</div>
+						<textarea [(ngModel)]="model.desc" name="desc" style="min-height: 100px;font-size:15px;color:#666;" class="form-control input-sm "
+							type="textarea" id="desc" placeholder="Type your event description here..." maxlength="600" rows="3"></textarea>
+					</div>
+					<div class="col-md-12" style="padding:15px;padding-bottom:0px;">
+						<div class="formlabel">Caption</div>
+						<input [(ngModel)]="model.caption" name="caption" style="font-size:15px;color:#666;background-color:#fff;padding-left:10px;"
+							class="form-control input-sm " type="text" id="caption" placeholder="Type your event caption here..." required/>
+					</div>
+					<div class="col-md-12" style="padding:15px;padding-bottom:0px;padding-top:0px;">
+						<div class="col-md-6" style="padding:0px;padding-right:8px;">
+							<div class="formlabel">Start Date</div>
+							<input type="date" id="start_date" placeholder="Start Date" name="start_date" class="form-control" required [(ngModel)]="model.start_date">
+						</div>
+						<div class="col-md-6" style="padding:0px;padding-left:8px;">
+							<div class="formlabel">End Date</div>
+							<input type="date" id="end_date" placeholder="End Date" name="end_date" class="form-control" required [(ngModel)]="model.end_date">
+						</div>
+					</div>
+					<div class="col-md-12" style="padding:15px;padding-bottom:0px;">
+						<div class="col-md-6" style="padding:0px;padding-right:8px;">
+							<div class="formlabel">Start Time</div>
+							<input type="time" id="start_time" placeholder="Start Time" name="start_time" class="form-control" required [(ngModel)]="model.start_time">
+						</div>
+						<div class="col-md-6" style="padding:0px;padding-left:8px;">
+							<div class="formlabel">End Time</div>
+							<input type="time" id="end_time" placeholder="End Time" name="end_time" class="form-control" required [(ngModel)]="model.end_time">
+						</div>
+					</div>
+					<div class="row" style="padding:15px;padding-bottom:0px;">
+
+					</div>
+
+					<br style="clear:both">
+					<div class="form-group col-md-6" style="float: right;">
+						<button class="form-control input-sm btn btn-success" id="btnSubmit" name="btnSubmit" type="submit" style="height:35px;float:right;width:150px;"> Send</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
